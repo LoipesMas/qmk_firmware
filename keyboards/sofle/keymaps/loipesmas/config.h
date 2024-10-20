@@ -12,10 +12,6 @@ for more options.
 #define NO_MUSIC_MODE
 
 #define WS2812_DI_PIN D3
-#define RGBLED_NUM 12
-#define RGBLED_SPLIT \
-    { 6, 6 }
-#define RGBLIGHT_EFFECT_STATIC_GRADIENT
 
 // Enable rapid switch from tap to hold, disables double tap hold auto-repeat.
 #define TAPPING_FORCE_HOLD
@@ -24,6 +20,3 @@ for more options.
 #define NO_AUTO_SHIFT_ALPHA
 #define AUTO_SHIFT_TIMEOUT TAPPING_TERM
 #define AUTO_SHIFT_NO_SETUP
-
-#define RGBLIGHT_EFFECT_RAINBOW_SWIRL
-#define RGBLIGHT_EFFECT_STATIC_GRADIENT
