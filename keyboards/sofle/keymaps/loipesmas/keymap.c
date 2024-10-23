@@ -29,70 +29,15 @@ enum custom_keycodes {
     KC_DLINE,
 };
 
-
+// keymaps generated from the_keymap.json
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
-/*
- * COLEMAK-DH
- * ,-----------------------------------------.                    ,-----------------------------------------.
- * |  `   |   1  |   2  |   3  |   4  |   5  |                    |   6  |   7  |   8  |   9  |   0  |  `   |
- * |------+------+------+------+------+------|                    |------+------+------+------+------+------|
- * | ESC  |   Q  |   W  |   F  |   P  |   G  |                    |   J  |   L  |   U  |   Y  |   ;  | Bspc |
- * |------+------+------+------+------+------|                    |------+------+------+------+------+------|
- * | TAB  |   A  |   R  |   S  |   T  |   D  |-------.    ,-------|   H  |   N  |   E  |   I  |   O  |  '   |
- * |------+------+------+------+------+------|  MUTE |    |       |------+------+------+------+------+------|
- * |LShift|   Z  |   X  |   C  |   V  |   B  |-------|    |-------|   K  |   M  |   ,  |   .  |   /  |RShift|
- * `-----------------------------------------/       /     \      \-----------------------------------------'
- *            | LGUI | LAlt | LCTR |LOWER | /Enter  /       \Space \  |RAISE | RCTR | RAlt | RGUI |
- *            |      |      |      |      |/       /         \      \ |      |      |      |      |
- *            `----------------------------------'           '------''---------------------------'
- */
-
-/*
-[_EMPTY] = LAYOUT(
-  _______, _______, _______, _______, _______, _______,                              _______, _______, _______, _______, _______, _______,
-  _______, _______, _______, _______, _______, _______,                              _______, _______, _______, _______, _______, _______,
-  _______, _______, _______, _______, _______, _______,                              _______, _______, _______, _______,_______, _______,
-  _______, _______, _______, _______, _______, _______, _______,         _______,_______, _______, _______, _______, _______, _______,
-                       _______, _______, _______, _______, _______,    _______, _______, _______, _______, _______
-),
-*/
-[_BASE] = LAYOUT(
-  RGB_MODE_PLAIN,   KC_W1,  KC_W2,   KC_W3,   KC_W4,  KC_W5,                                   KC_W6,    KC_W7,    KC_W8,    KC_W9,    KC_W0,  RGB_TOG,
-  RGB_MODE_SWIRL,   KC_Q,   KC_W,    KC_F,    KC_P,    KC_B,                                   KC_J,    KC_L,    KC_U,    KC_Y, KC_QUOT,  RGB_HUI,
-  RGB_MODE_GRADIENT, LGUI_T(KC_A),LALT_T(KC_R),LCTL_T(KC_S),LSFT_T(KC_T),KC_G,           KC_M,LSFT_T(KC_N),LCTL_T(KC_E),LALT_T(KC_I),LGUI_T(KC_O),  RGB_SAI,
-  TG(_GAMER),  KC_Z,   ALGR_T(KC_X),    KC_C,    KC_D,    KC_V, KC_MUTE,               XXXXXXX,KC_K,    KC_H, KC_COMM,  ALGR_T(KC_DOT), KC_SLSH,  RGB_VAI,
-        KC_LGUI,LGUI(KC_J),KC_ESC, LT(_NAV, KC_SPC),LT(_MOUSE, KC_TAB),      LT(_SYM,KC_ENT),LT(_NUM, KC_BSPC), LT(_FUN,  KC_DEL ), LGUI(KC_COMM), KC_RGUI
-),
-[_NUM] = LAYOUT(
-  _______,  KC_EQL, KC_MINS, KC_PLUS, KC_LCBR, KC_RCBR,                         KC_LBRC, KC_RBRC, KC_SCLN, KC_COLN, KC_BSLS, _______,
-  _______,   KC_LBRC,   KC_7,   KC_8,   KC_9,   KC_RBRC,                       KC_F6,   KC_F7,   KC_F8,   KC_F9,  KC_F10,  KC_F11,
-  KC_GRV,    KC_SCLN,    KC_4,    KC_5,    KC_6,    KC_EQL,                     XXXXXXX, KC_LSFT, KC_LCTL, KC_LALT,KC_LGUI, XXXXXXX,
-  _______, KC_GRV,   KC_1,    KC_2,    KC_3, KC_BSLS, _______,         _______,KC_CIRC, KC_AMPR, _______, _______, KC_RPRN, KC_PIPE,
-                       _______, _______, KC_LPRN, KC_0, KC_MINS,       _______, _______, _______, _______, _______
-),
-[_NAV] = LAYOUT(
-  _______, _______ , _______ , _______ , _______ , _______,                           _______,  _______  , _______,  _______ ,  _______ ,_______,
-  _______,  KC_INS,  KC_PSCR,   KC_APP,  XXXXXXX, XXXXXXX,                        KC_PGUP, KC_PRVWD,   KC_NXTWD,KC_DLINE, KC_BSPC, _______,
-  _______, KC_LGUI, KC_LALT,  KC_LCTL,  KC_LSFT,  XXXXXXX,                       CW_TOGG,  KC_LEFT, KC_DOWN, KC_UP,   KC_RGHT, KC_BSPC,
-  _______,KC_UNDO, KC_CUT, KC_COPY, KC_PASTE, XXXXXXX,  _______,       _______,  XXXXXXX, KC_HOME,  KC_PGDN, KC_PGUP, KC_LEND,   _______,
-                         _______, _______, _______, _______, _______,       KC_ENT, KC_BSPC, KC_DEL, _______, _______
-),
-[_FUN] = LAYOUT(
-  _______,  KC_EQL, KC_MINS, KC_PLUS, KC_LCBR, KC_RCBR,                         KC_LBRC, KC_RBRC, KC_SCLN, KC_COLN, KC_BSLS, _______,
-  _______,   KC_F12,   KC_F7,   KC_F8,   KC_F9,   KC_RBRC,                       KC_F6,   KC_F7,   KC_F8,   KC_F9,  KC_F10,  KC_F11,
-  KC_GRV,    KC_F11,    KC_F4,    KC_F5,    KC_F6,    KC_EQL,                     XXXXXXX, KC_LSFT, KC_LCTL, KC_LALT,KC_LGUI, XXXXXXX,
-  _______, KC_F10,   KC_F1,    KC_F2,    KC_F3, KC_BSLS, _______,         _______,KC_CIRC, KC_AMPR, KC_ASTR, KC_LPRN, KC_RPRN, KC_PIPE,
-                        _______, _______, KC_APP, KC_SPC, KC_TAB,       _______, _______, _______, _______, _______
-),
-[_MOUSE] = LAYOUT(
-  _______, _______, _______, _______, _______, _______,                              _______, _______, _______, _______, _______, _______,
-  _______, _______, _______, _______, _______, _______,                              _______, _______, _______, _______, _______, _______,
-  _______, KC_LGUI, KC_LALT,  KC_LCTL,  KC_LSFT,  XXXXXXX,                           XXXXXXX, KC_MS_L, KC_MS_D, KC_MS_U, KC_MS_R, KC_BSPC,
-  _______, _______, _______, _______, _______, _______, _______,         _______,_______, KC_WH_L, KC_WH_D, KC_WH_U, KC_WH_R, _______,
-                       _______, _______, _______, _______, _______,    KC_BTN1, KC_BTN3, KC_BTN2, _______, _______
-),
-[_SYM] = LAYOUT(KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_GRV, KC_TILD, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_LCBR, KC_LBRC, KC_LPRN, KC_QUOT, KC_SLSH, KC_NO, KC_LSFT, KC_LCTL, KC_LALT, KC_LGUI, KC_NO, KC_NO, KC_RCBR, KC_RBRC, KC_RPRN, KC_DQUO, KC_BSLS, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_LT, KC_GT, KC_UNDS, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO),
-[_GAMER] = LAYOUT(KC_GRV, KC_1, KC_2, KC_3, KC_4, KC_5, KC_6, KC_7, KC_8, KC_9, KC_0, KC_GRV, KC_ESC, KC_Q, KC_E, KC_W, KC_R, KC_T, KC_Y, KC_U, KC_I, KC_O, KC_P, KC_BSPC, KC_TAB, KC_F, KC_A, KC_S, KC_D, KC_G, KC_H, KC_J, KC_K, KC_L, KC_SCLN, KC_QUOT, TG(_GAMER), KC_Z, KC_X, KC_C, KC_V, KC_B, KC_NO, KC_NO, KC_N, KC_M, KC_COMM, KC_DOT, KC_SLSH, KC_RSFT, KC_LGUI, KC_LCTL, KC_ESC, KC_SPC, KC_LSFT, KC_ENT, KC_BSPC, KC_RCTL, KC_RALT, KC_RGUI),
+    [0] = LAYOUT(RGB_M_P, KC_W1, KC_W2, KC_W3, KC_W4, KC_W5, KC_W6, KC_W7, KC_W8, KC_W9, KC_W0, RGB_TOG, RGB_M_SW, KC_Q, KC_W, KC_F, KC_P, KC_B, KC_J, KC_L, KC_U, KC_Y, KC_QUOT, RGB_HUI, RGB_M_G, LGUI_T(KC_A), LALT_T(KC_R), LCTL_T(KC_S), LSFT_T(KC_T), KC_G, KC_M, LSFT_T(KC_N), LCTL_T(KC_E), LALT_T(KC_I), LGUI_T(KC_O), RGB_SAI, TG(6), KC_Z, ALGR_T(KC_X), KC_C, KC_D, KC_V, KC_NO, KC_NO, KC_K, KC_H, KC_COMM, ALGR_T(KC_DOT), KC_SLSH, RGB_VAI, KC_LGUI, LGUI(KC_J), KC_ESC, LT(1,KC_SPC), LT(4,KC_TAB), LT(5,KC_ENT), LT(2,KC_BSPC), LT(3,KC_DEL), LGUI(KC_COMM), KC_RGUI),
+    [1] = LAYOUT(KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_INS, KC_PSCR, KC_APP, KC_NO, KC_NO, KC_PGUP, KC_PRVWD, KC_NXTWD, KC_DLINE, KC_BSPC, KC_TRNS, KC_TRNS, KC_LGUI, KC_LALT, KC_LCTL, KC_LSFT, KC_NO, CW_TOGG, KC_LEFT, KC_DOWN, KC_UP, KC_RGHT, KC_BSPC, KC_TRNS, KC_UNDO, KC_CUT, KC_COPY, KC_PSTE, KC_NO, KC_TRNS, KC_TRNS, KC_NO, KC_HOME, KC_PGDN, KC_PGUP, KC_LEND, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_ENT, KC_BSPC, KC_DEL, KC_TRNS, KC_TRNS),
+    [2] = LAYOUT(KC_TRNS, KC_EQL, KC_MINS, KC_PLUS, KC_LCBR, KC_RCBR, KC_LBRC, KC_RBRC, KC_SCLN, KC_COLN, KC_BSLS, KC_TRNS, KC_TRNS, KC_LBRC, KC_7, KC_8, KC_9, KC_RBRC, KC_F6, KC_F7, KC_F8, KC_F9, KC_F10, KC_F11, KC_GRV, KC_SCLN, KC_4, KC_5, KC_6, KC_EQL, KC_NO, KC_LSFT, KC_LCTL, KC_LALT, KC_LGUI, KC_NO, KC_TRNS, KC_GRV, KC_1, KC_2, KC_3, KC_BSLS, KC_TRNS, KC_TRNS, KC_CIRC, KC_AMPR, KC_TRNS, KC_TRNS, KC_RPRN, KC_PIPE, KC_TRNS, KC_TRNS, KC_LPRN, KC_0, KC_MINS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS),
+    [3] = LAYOUT(KC_TRNS, KC_EQL, KC_MINS, KC_PLUS, KC_LCBR, KC_RCBR, KC_LBRC, KC_RBRC, KC_SCLN, KC_COLN, KC_BSLS, KC_TRNS, KC_TRNS, KC_F12, KC_F7, KC_F8, KC_F9, KC_RBRC, KC_F6, KC_F7, KC_F8, KC_F9, KC_F10, KC_F11, KC_GRV, KC_F11, KC_F4, KC_F5, KC_F6, KC_EQL, KC_NO, KC_LSFT, KC_LCTL, KC_LALT, KC_LGUI, KC_NO, KC_TRNS, KC_F10, KC_F1, KC_F2, KC_F3, KC_BSLS, KC_TRNS, KC_TRNS, KC_CIRC, KC_AMPR, KC_ASTR, KC_LPRN, KC_RPRN, KC_PIPE, KC_TRNS, KC_TRNS, KC_APP, KC_SPC, KC_TAB, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS),
+    [4] = LAYOUT(KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_LGUI, KC_LALT, KC_LCTL, KC_LSFT, KC_NO, KC_NO, KC_MS_L, KC_MS_D, KC_MS_U, KC_MS_R, KC_BSPC, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_WH_L, KC_WH_D, KC_WH_U, KC_WH_R, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_BTN1, KC_BTN3, KC_BTN2, KC_TRNS, KC_TRNS),
+    [5] = LAYOUT(KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_GRV, KC_TILD, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_LCBR, KC_LBRC, KC_LPRN, KC_QUOT, KC_SLSH, KC_NO, KC_LSFT, KC_LCTL, KC_LALT, KC_LGUI, KC_NO, KC_NO, KC_RCBR, KC_RBRC, KC_RPRN, KC_DQUO, KC_BSLS, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_LT, KC_GT, KC_UNDS, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO),
+    [6] = LAYOUT(KC_GRV, KC_1, KC_2, KC_3, KC_4, KC_5, KC_6, KC_7, KC_8, KC_9, KC_0, KC_GRV, KC_ESC, KC_Q, KC_E, KC_W, KC_R, KC_T, KC_Y, KC_U, KC_I, KC_O, KC_P, KC_BSPC, KC_TAB, KC_F, KC_A, KC_S, KC_D, KC_G, KC_H, KC_1, KC_2, KC_3, KC_SCLN, KC_QUOT, TG(6), KC_Z, KC_X, KC_C, KC_V, KC_B, KC_NO, KC_NO, KC_N, KC_M, KC_COMM, KC_DOT, KC_SLSH, KC_RSFT, KC_LGUI, KC_LCTL, KC_ESC, KC_SPC, KC_LSFT, KC_ENT, KC_BSPC, KC_RCTL, KC_RALT, KC_RGUI)
 };
 
 #ifdef OLED_ENABLE
